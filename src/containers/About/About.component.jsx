@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-
+import './About.styles.scss'
 import images from '../../constants/images'
 const abouts = [
     {
@@ -27,8 +27,8 @@ const abouts = [
 const About = () => {
   return (
     <>
-        <h2 className="head-text"> 
-        I know that <span> Good Design Means Good Buisness </span>
+        <h2 className="head-text" style={{ marginTop: '4rem'}}> 
+        I know that <span> Good Design Means <br /> Good Buisness </span>
         </h2> 
             <div className="app__profiles" id="about">
             {
@@ -36,7 +36,7 @@ const About = () => {
                     <motion.div 
                         className="app__profile-item" 
                         key={about.name + index}
-                        whileInView={{ scale: [0, 1] }}
+                        whileInView={{ opacity: [0,1] }}
                         transition={{ duration: 1}}
                         whileHover={{
                             scale: 1.1,
@@ -44,7 +44,7 @@ const About = () => {
                           }}
                         >
                         <img src={about.imgUrl} alt={about.name} />
-                        <h2 className="bold-text">{about.name}</h2>
+                        <h2 className="bold-text" style={{ marginTop: '20px'}}>{about.name}</h2>
                         <p className="p-text">{about.description}</p>
                     </motion.div>
                 ))
