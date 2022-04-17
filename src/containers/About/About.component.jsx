@@ -28,7 +28,7 @@ const About = () => {
   return (
     <>
         <h2 className="head-text" style={{ marginTop: '4rem'}}> 
-        I know that <span> Good Design Means <br /> Good Buisness </span>
+        I know that <span> Good Apss <br /> Means Good Buisness </span>
         </h2> 
             <div className="app__profiles" id="about">
             {
