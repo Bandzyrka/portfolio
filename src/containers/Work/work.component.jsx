@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {client, urlFor} from '../../client'
 import {motion} from 'framer-motion'
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
-
+import './work.styles.scss'
 
 const Work = () => {
   const [Works, setWorks] = useState([])
