@@ -1,19 +1,19 @@
 import React from 'react'
-import {FaLinkedin, FaInstagram, FaGithubSquare, FaFacebookSquare} from 'react-icons/fa'
+import {FaLinkedinIn, FaInstagram, FaGithub, FaFacebookF} from 'react-icons/fa'
 const Socials = () => {
   return (
-    <div className="app_social">
+    <div className="app__social">
         <div>
-            {FaLinkedin}
+            <FaLinkedinIn />
         </div>
         <div>
-            {FaInstagram}
+            <FaInstagram />
         </div>
         <div>
-            {FaGithubSquare}
+            <FaGithub />
         </div>
         <div>
-            {FaFacebookSquare}
+            <FaFacebookF />
         </div>
     </div>
   )

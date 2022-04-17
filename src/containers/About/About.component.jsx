@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { motion } from 'framer-motion'
 import './About.styles.scss'
 import {client, urlFor} from '../../client'
-
+import AppWrapper from '../../wrapper/AppWrapper'
 
 const About = () => {
 
@@ -19,7 +19,7 @@ const About = () => {
         <h2 className="head-text" style={{ marginTop: '4rem'}}> 
         I know that <span> Good Apss </span> <br /> Means <span> Good Buisness </span>
         </h2> 
-            <div className="app__profiles" id="about">
+            <div className="app__profiles">
             {
                 abouts.map((about, index) => (
                     <motion.div 
@@ -43,4 +43,4 @@ const About = () => {
   )
 }
 
-export default About
+export default AppWrapper(About, 'about', 'app_whitebg',)
