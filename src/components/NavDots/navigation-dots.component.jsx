@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react'
-const sections = ['home', 'about']
+const sections = ['home', 'about', 'work']
 const NavigationDots = ({active}) => {
   return (
     <div className="app__navigation"> 

@@ -3,25 +3,64 @@ import {client, urlFor} from '../../client'
 import {motion} from 'framer-motion'
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import './work.styles.scss'
+import AppWrapper from '../../wrapper/AppWrapper'
 
 const Work = () => {
-  const [Works, setWorks] = useState([])
+  const [works, setWorks] = useState([])
+  const [filterWorks, setFilterWorks] = useState([])
+  const [activeFilter, setActiveFilter] = useState('All')
+  const [animateCard, setAnimateCard] = useState({y: 0, opacity: 1})
+  
   useEffect(() => {
-    const query = '*[_type="works"]'
+    const query = '*[_type=="works"]'
     client.fetch(query).then((data) =>
-        setWorks(data)
+        {
+          setWorks(data);
+          setFilterWorks(data);
+      }
     )
   }, [])
+  const handleFilter = (filter) => {
+    setActiveFilter(filter)
+    setAnimateCard([{y: 100, opacity: 0}])
+    
+    setTimeout(() =>  {
+      
+      setAnimateCard([{y: 0, opacity: 1}])
+    if(filter === 'All') {
+      setFilterWorks(works);
+    }
+    else{
+      setFilterWorks(works.filter((work) => work.tags.includes(filter)))
+    }
+    }, 500)
+  }
     return (
     <>
         <h2 className="head-text" > 
             My Creative <span>Portfolio</span> Section
         </h2>
-        
-        <div className="app__work-portfolio">
-            {
-                Works.map((work, index) =>(
-                    <div className="app__work-item app__flex" key={index}>
+        <div className="app__work-filter">
+        {
+          ['All', "UX/UI", "React JS",].map((filter, index) => (
+            <div 
+              className={`app__work-filter-item p-text app__flex ${activeFilter === filter ? 'item-active' : ''}`} 
+              key={filter+index}
+              onClick={() => handleFilter(filter)}> 
+              {filter}
+            </div>
+          ))
+        }
+        </div>
+        <motion.div 
+          className="app__work-portfolio"
+          animate={animateCard}
+          transition={{duration: 0.6, delayChildren: 0.6, ease: 'easeInOut'}} 
+          >
+          {
+                filterWorks.map((work, index) =>(
+                    <div 
+                    className="app__work-item app__flex" key={index+work.title}>
             <div
               className="app__work-img app__flex"
             >
@@ -67,9 +106,9 @@ const Work = () => {
           </div>
                 ))
             }
-        </div>
+        </motion.div>
     </>
   )
 }
 
-export default Work
+export default AppWrapper(Work, 'work')
