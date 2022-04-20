@@ -24,7 +24,7 @@ const About = () => {
                 abouts.map((about, index) => (
                     <motion.div 
                         className="app__profile-item" 
-                        key={about.name + index}
+                        key={about.title + index}
                         whileInView={{ opacity: [0,1] }}
                         transition={{ duration: 1}}
                         whileHover={{
