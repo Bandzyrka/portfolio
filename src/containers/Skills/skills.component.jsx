@@ -3,6 +3,8 @@ import {client, urlFor} from '../../client'
 import AppWrapper from '../../wrapper/AppWrapper'
 import {motion} from 'framer-motion'
 import './skills.styles.scss'
+import ReactTooltip from 'react-tooltip';
+
 export const Skills = () => {
   const [skills, setSkills] = useState([])
   const [exp, setExp] = useState([])
@@ -55,9 +57,14 @@ export const Skills = () => {
                             <motion.div 
                                 className="app__skills-exp-work"
                                 whileInView={{opacity: [0, 1] }}
-                                transition={{ duration: 1}}>    
+                                transition={{ duration: 1}}
+                                data-tip
+                                data-for={work.name+work.company}>    
                                 <h3>{work.name}</h3>
                                 <p className="p-text">{work.company}</p>
+                                <ReactTooltip id={work.name+work.company} place="top" effect="solid">
+                                    <p >{work.desc}</p>
+                                </ReactTooltip>
                             </motion.div>
                             ))
                         }
