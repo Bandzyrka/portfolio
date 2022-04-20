@@ -29,6 +29,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        :hover{
+            transition: 300ms ease-in-out;
+            transform: scale(1.1);}
     }
     .app__skills-item-icon{
         width: 80px;
@@ -39,7 +42,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         margin: 1rem;
         img{
             width: 50%;
@@ -78,7 +81,11 @@
             
             .app__skills-exp-work{
                 margin: 0 1rem 2rem 1rem;
-                
+                :hover{
+                    color: var(--secondary-color);
+                    transition: 100ms;
+                    transform: scale(1.1);
+                }
             }
         }
     }
