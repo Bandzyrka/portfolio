@@ -5,6 +5,7 @@ import Header from './containers/Header/Header.component'
 import About from './containers/About/About.component'
 import Skills from './containers/Skills/skills.component'
 import Work from './containers/Work/work.component'
+import Contact from './containers/Contact/Contact.component.jsx'
 import './App.scss';
 
 const App = () => (
@@ -14,6 +15,7 @@ const App = () => (
     <About />
     <Work />
     <Skills />
+    <Contact />
   </div>
 );
 
