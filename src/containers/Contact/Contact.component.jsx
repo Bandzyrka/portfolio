@@ -5,6 +5,8 @@ import {FaUser} from 'react-icons/fa'
 import {IoIosMailOpen} from 'react-icons/io'
 import {client} from '../../client'
 import {MdAlternateEmail} from 'react-icons/md'
+import { AiOutlineCheck} from 'react-icons/ai'
+import {motion} from 'framer-motion'
 import './Contact.component.scss'
 const Contact = () => {
     
@@ -36,22 +38,26 @@ const Contact = () => {
   return (
     <>
       <h2 className="head-text">Take a <span>Chat</span> & <span>Coffe</span> with me</h2>
-      <div className="app__contact">
+      <motion.div className="app__contact"
+        whileInView={{opacity: [0, 1] }}
+        transition={{ duration: 1}}
+      >
         <div className="app_contact-content">
             <div className="app_contact-item">
-                <img src={images.mobile} alt="mobile" />
+                <motion.img src={images.mobile} alt="mobile" whileHover={{scale: '1.1', duration: '0.5'}}/>
                 <p className="p-text"> +48 791 114 502 </p>
             </div>
             <div className="app_contact-item">    
-                <img src={images.email} alt="email" />
+                <motion.img src={images.email} alt="email" whileHover={{scale: '1.1', duration: '0.5'}}/>
                 <p className="p-text"> bandzyrka@gmail.com </p>
             </div>
         </div> 
         {
             !isFormSubmited ? <div className="app__contact-form">
+                
                 <label>
                     <FaUser /> 
-                    Your Name
+                     Your Name
                 </label>
                 <input 
                     placeholder="e.g John Doe" 
@@ -64,7 +70,7 @@ const Contact = () => {
               
                 <label>
                     <MdAlternateEmail/> 
-                    Your email
+                     Your Email
                 </label>
                 <input 
                     placeholder="email@domain.com"
@@ -78,7 +84,7 @@ const Contact = () => {
     
                 <label>
                     <IoIosMailOpen />
-                    Your Message
+                     Your Message
                  </label>
                 <textarea 
                     placeholder="type here"
@@ -87,12 +93,24 @@ const Contact = () => {
                     onChange={handleChangeForm}
                 >
                 </textarea>
-                <button onClick={handleSumbit}> {loading ? "Please wait..." : "Send Message"}</button>
+                <motion.button 
+                    onClick={handleSumbit}
+                    whileHover={{backgroundColor: '#315cac', scale: 1.02}}
+                    transition={{ duration: 0.1, ease: 'easeInOut'}}
+                    whileTap={{scale: 0.9}}
+                    > {loading ? (<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>) : "Send Message"}</motion.button>
         </div>
         :
-        <h2> Thank you for getting in touch! </h2>
+        <motion.div
+            className="succes_message"
+            whileInView={{y: [100, 0], opacity: [0, 1] }}
+            transition={{ duration: 1, ease: 'easeInOut' }}> 
+            <AiOutlineCheck />
+            <span>Message sent successfully</span>
+            <h2 className="bold-text">Thank you for getting in touch!</h2>
+        </motion.div>
     }
-        </div>
+        </motion.div>
       </>
   )
 }
