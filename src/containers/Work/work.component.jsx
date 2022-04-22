@@ -42,7 +42,7 @@ const Work = () => {
         </h2>
         <div className="app__work-filter">
         {
-          ['All', "UX/UI", "React JS",].map((filter, index) => (
+          ['All', "UX/UI", "React JS", 'Web App', 'Website'].map((filter, index) => (
             <div 
               className={`app__work-filter-item p-text app__flex ${activeFilter === filter ? 'item-active' : ''}`} 
               key={filter+index}

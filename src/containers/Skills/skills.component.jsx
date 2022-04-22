@@ -19,7 +19,6 @@ export const Skills = () => {
     client.fetch(expQuery).then((data) =>
         {
           setExp(data)
-          console.log(data)
         })
   }, [])
   
@@ -34,7 +33,8 @@ export const Skills = () => {
                 <motion.div 
                     whileInView={{ scale: [0, 1.1, 1]}}
                     transition={{ duration: 1, ease: 'easeInOut'}}
-                    className="app__skills-container" key={index+skill.name}>
+                    className="app__skills-container" 
+                    key={skill.name+index}>
                     <div className="app__skills-item-icon" >
                         <img src={urlFor(skill.icon)} alt={skill.name} />
                     </div>
@@ -47,8 +47,8 @@ export const Skills = () => {
             className="app__skills-exp"
             >
         {
-            exp.map(year => (
-                <div className="app__skills-exp-year">
+            exp.map((year, index) => (
+                <div className="app__skills-exp-year" key={year.year + index}>
                     <h2 className="bold-text">{year.year}</h2>
                     <div className={year.year !== '2022' ? 'vl ': ''} />
                     <div className="app__skills-exp-works">
@@ -59,7 +59,8 @@ export const Skills = () => {
                                 whileInView={{opacity: [0, 1] }}
                                 transition={{ duration: 1}}
                                 data-tip
-                                data-for={work.name+work.company}>    
+                                data-for={work.name+work.company}
+                                key={work.name+work.company}>
                                 <h3>{work.name}</h3>
                                 <p className="p-text">{work.company}</p>
                                 <ReactTooltip id={work.name+work.company} place="top" effect="solid">

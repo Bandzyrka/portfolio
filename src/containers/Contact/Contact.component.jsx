@@ -14,16 +14,15 @@ const Contact = () => {
   const [isFormSubmited, setIsFormSubmited] = useState(false)
   const [loading, setLoading] = useState(false)
   
-  const { name, email, message} = formData
-
+  
   const handleChangeForm = (event) =>
   {
-    const {value, name} = event
+    const {value, name} = event.target
     setFormData({...formData, [name]: value})
   }
   const handleSumbit = () =>{
+      const { name, email, message} = formData
       setLoading(true);
-      console.log('sd')
       const contact = {
           _type: 'contact',
           name: name,
@@ -98,7 +97,7 @@ const Contact = () => {
                     whileHover={{backgroundColor: '#315cac', scale: 1.02}}
                     transition={{ duration: 0.1, ease: 'easeInOut'}}
                     whileTap={{scale: 0.9}}
-                    > {loading ? (<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>) : "Send Message"}</motion.button>
+                    > {loading ? (<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>) : "Send Message"}</motion.button>
         </div>
         :
         <motion.div
