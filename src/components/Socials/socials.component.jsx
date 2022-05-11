@@ -4,16 +4,24 @@ const Socials = () => {
   return (
     <div className="app__social">
         <div>
-            <FaLinkedinIn />
+           <a href="https://www.linkedin.com/in/bandzyrka/" target="_blank" rel="noreferrer">
+                <FaLinkedinIn />
+           </a> 
         </div>
         <div>
-            <FaInstagram />
+            <a href="https://www.instagram.com/bandzyrka/" target="_blank" rel="noreferrer">
+                <FaInstagram />
+            </a> 
         </div>
         <div>
-            <FaGithub />
+            <a href="https://github.com/Bandzyrka" target="_blank" rel="noreferrer">
+                <FaGithub />
+            </a> 
         </div>
         <div>
+        <a href="https://www.facebook.com/wiktor.bandzyra/" target="_blank" rel="noreferrer">    
             <FaFacebookF />
+        </a>
         </div>
     </div>
   )
