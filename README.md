@@ -8,7 +8,7 @@
 
 <img src="https://i.postimg.cc/Wb6bZstz/obraz-2022-05-24-232152731.png" alt="project-screenshot" width="700" height="400/">
 
-<img src="https://i.postimg.cc/vT7M5vYk/obraz-2022-05-24-232241934.png" alt="project-screenshot" width="700" height="400/">
+<img src="https://i.postimg.cc/vT7M5vYk/obraz-2022-05-24-232241934.png" alt="project-screenshot" width="1000" height="400/">
 
   
   
